@@ -18,5 +18,8 @@ public class Player {
         this.score = tempScore;
     }
 
+    public boolean bust(short score) {
+        return score > 21;
+    }
 
 }
