@@ -7,8 +7,8 @@ public class Card {
     String type;
     short value;
 
-    List<String> validCard = List.of("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
-    List<String> validType = List.of("Diamonds", "Hearts", "Spades", "Clubs");
+    static List<String> validCard = List.of("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
+    static List<String> validType = List.of("Diamonds", "Hearts", "Spades", "Clubs");
 
     public Card(String card, String type) throws Exception {
         setValue(card);
@@ -50,7 +50,7 @@ public class Card {
         }
     }
 
-    public List<Card> generateDeck() throws Exception {
+    public static List<Card> generateDeck() throws Exception {
         ArrayList<Card> deck = new ArrayList<>();
         for (String type : validType) {
             for (String card : validCard) {
