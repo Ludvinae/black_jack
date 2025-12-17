@@ -1,3 +1,5 @@
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Card {
@@ -46,6 +48,16 @@ public class Card {
         else {
             return Short.parseShort(this.card);
         }
+    }
+
+    public List<Card> generateDeck() throws Exception {
+        ArrayList<Card> deck = new ArrayList<>();
+        for (String type : validType) {
+            for (String card : validCard) {
+                deck.add(new Card(card, type));
+            }
+        }
+        return deck;
     }
 
 
