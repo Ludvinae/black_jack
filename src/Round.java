@@ -7,7 +7,7 @@ public class Round {
 
     public Round() throws Exception {
         this.deck = new Deck();
-        this.turn = "bank";
+        this.turn = "player";
         for (int i = 0; i < 2; i++) {
             bank.draw(deck);
             player.draw(deck);
@@ -34,10 +34,14 @@ public class Round {
         while (win() == "next card") {
             System.out.println(this);
             if (this.turn == "bank") {
-                bank.draw(deck);
+                if (bank.keepPlaying(true)) {
+                    bank.draw(deck);
+                }
                 this.turn = "player";
             } else if (this.turn == "player") {
-                player.draw(deck);
+                if (player.keepPlaying(false)) {
+                    player.draw(deck);
+                }
                 this.turn = "bank";
             }
         }
