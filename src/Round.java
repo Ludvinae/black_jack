@@ -9,8 +9,8 @@ public class Round {
         this.deck = new Deck();
         this.turn = "bank";
         for (int i = 0; i < 2; i++) {
-            bank.hand.add(deck.drawCard());
-            player.hand.add(deck.drawCard());
+            bank.draw(deck);
+            player.draw(deck);
         }
     }
 
@@ -25,17 +25,24 @@ public class Round {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Bank score: " + bank.getScore() + " | Player score: " + player.getScore();
+    }
+
     public void play() {
         while (win() == "next card") {
-            System.out.println("Bank score: " + bank.getScore() + " | Player score: " + player.getScore());
+            System.out.println(this);
             if (this.turn == "bank") {
-                bank.hand.add(deck.drawCard());
+                bank.draw(deck);
                 this.turn = "player";
             } else if (this.turn == "player") {
-                player.hand.add(deck.drawCard());
+                player.draw(deck);
                 this.turn = "bank";
             }
         }
+        System.out.println(this);
+        System.out.println(win());
     }
 
 
