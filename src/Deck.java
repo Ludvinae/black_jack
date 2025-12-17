@@ -1,17 +1,18 @@
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class Deck {
 
-    List<Card> startingDeck;
-    List<Card> remainingCards;
 
-    public Deck() {
+    ArrayList<Card> remainingCards;
+
+    public Deck() throws Exception {
         this.remainingCards = getStartingDeck();
     }
 
-    public List<Card> getStartingDeck() {
-
+    public ArrayList<Card> getStartingDeck() throws Exception {
+        return Card.generateDeck();
     }
 
 

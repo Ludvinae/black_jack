@@ -50,7 +50,7 @@ public class Card {
         }
     }
 
-    public static List<Card> generateDeck() throws Exception {
+    public static ArrayList<Card> generateDeck() throws Exception {
         ArrayList<Card> deck = new ArrayList<>();
         for (String type : validType) {
             for (String card : validCard) {
