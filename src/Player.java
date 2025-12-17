@@ -18,7 +18,16 @@ public class Player {
         this.score = tempScore;
     }
 
-    public static boolean bust(short score) {
+    public short getScore() {
+        return this.score;
+    }
+
+    public void draw(Deck deck) {
+        this.hand.add(deck.drawCard());
+        setScore();
+    }
+
+    public boolean bust(short score) {
         return score > 21;
     }
 
