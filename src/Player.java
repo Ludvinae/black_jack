@@ -1,5 +1,6 @@
 import java.io.StringBufferInputStream;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Player {
@@ -41,7 +42,7 @@ public class Player {
         if (!cpu) {
             System.out.println("Do you want to draw a card? (Y/n)");
             String answer = playerChoice.nextLine();
-            if (answer == "n" || answer == "N") {
+            if (Objects.equals(answer, "n") || Objects.equals(answer, "N")) {
                 return false;
             }
             return true;
