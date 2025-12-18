@@ -7,14 +7,14 @@ public class Player {
 
     ArrayList<Card> hand;
     short score;
-    boolean keep;
+    boolean keepHand;
 
     Scanner playerChoice = new Scanner(System.in);
 
     public Player() {
         this.score = 0;
         this.hand = new ArrayList<Card>();
-        this.keep = false;
+        this.keepHand = false;
     }
 
     public void setScore() {

@@ -31,15 +31,15 @@ public class Round {
     }
 
     public void play() {
-        while (win() == "next card") {
+        while (win() == "next card" && (!bank.keepHand || !player.keepHand)) {
             System.out.println(this);
             if (this.turn == "bank") {
-                if (bank.keepPlaying(true)) {
+                if (!bank.keepHand && bank.keepPlaying(true)) {
                     bank.draw(deck);
                 }
                 this.turn = "player";
             } else if (this.turn == "player") {
-                if (player.keepPlaying(false)) {
+                if (!player.keepHand && player.keepPlaying(false)) {
                     player.draw(deck);
                 }
                 this.turn = "bank";
