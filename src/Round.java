@@ -21,6 +21,14 @@ public class Round {
             return "Bank won the round!";
         }
         else {
+            if (bank.keepHand && player.keepHand) {
+                if (player.getScore() > bank.getScore()) {
+                    return "Player won the round!";
+                }
+                else {
+                    return "Bank won the round!";
+                }
+            }
             return "next card";
         }
     }
@@ -34,11 +42,13 @@ public class Round {
         while (win() == "next card" && (!bank.keepHand || !player.keepHand)) {
             System.out.println(this);
             if (this.turn == "bank") {
+                System.out.println(bank.displayHand());
                 if (!bank.keepHand && bank.keepPlaying(true)) {
                     bank.draw(deck);
                 }
                 this.turn = "player";
             } else if (this.turn == "player") {
+                System.out.println(player.displayHand());
                 if (!player.keepHand && player.keepPlaying(false)) {
                     player.draw(deck);
                 }
