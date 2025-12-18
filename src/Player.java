@@ -22,22 +22,23 @@ public class Player {
         for (Card card : hand) {
             tempScore += card.getValue(false);
         }
-        short counter = 0;
         short loopCount = 1;
         while (tempScore > 21) {
+            short counter = 0;
             tempScore = 0;
             boolean exceed = true;
             for (Card card : hand) {
                 tempScore += card.getValue(exceed);
-                if (card.card == "Ace" && (counter < loopCount)) {
+                System.out.println(tempScore);
+                if (card.card == "Ace" && (counter >= loopCount)) {
                     counter += 1;
                     exceed = false;
                 }
             }
-            loopCount += 1;
             if (loopCount > hand.size()) {
                 break;
             }
+            loopCount += 1;
         }
         this.score = tempScore;
     }
