@@ -42,13 +42,13 @@ public class Round {
         while (win() == "next card" && (!bank.keepHand || !player.keepHand)) {
             System.out.println(this);
             if (this.turn == "bank") {
-                System.out.println(bank.displayHand());
+                System.out.println("Bank hand: " + bank.displayHand());
                 if (!bank.keepHand && bank.keepPlaying(true)) {
                     bank.draw(deck);
                 }
                 this.turn = "player";
             } else if (this.turn == "player") {
-                System.out.println(player.displayHand());
+                System.out.println("Player hand: " + player.displayHand());
                 if (!player.keepHand && player.keepPlaying(false)) {
                     player.draw(deck);
                 }

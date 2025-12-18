@@ -7,7 +7,9 @@ public class Card {
     String type;
     short value;
 
-    static List<String> validCard = List.of("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
+    //static List<String> validCard = List.of("Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K");
+    //test deck
+    static List<String> validCard = List.of("Ace", "2", "3");
     static List<String> validType = List.of("Diamonds", "Hearts", "Spades", "Clubs");
 
     public Card(String card, String type) throws Exception {
