@@ -31,7 +31,7 @@ public class Player {
 
     public void draw(Deck deck) {
         Card card = deck.drawCard();
-        System.out.println("Drawn a card: " + card);
+        System.out.println("Drew a card: " + card);
         this.hand.add(card);
         setScore();
     }
@@ -50,6 +50,11 @@ public class Player {
 
     public boolean keepPlaying(boolean cpu) {
         if (!cpu) {
+            if (this.getScore() == 21) {
+                this.keepHand = true;
+                System.out.println("BlackJack !");
+                return false;
+            }
             System.out.println("Do you want to draw a card? (Y/n)");
             String answer = playerChoice.nextLine();
             if (Objects.equals(answer, "n") || Objects.equals(answer, "N")) {
@@ -58,7 +63,11 @@ public class Player {
             }
             return true;
         }
-        if (getScore() <= 16) {
+        if (this.getScore() == 21) {
+            this.keepHand = true;
+            return false;
+        }
+        else if (this.getScore() <= 16) {
             return true;
         }
         this.keepHand = true;
