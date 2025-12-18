@@ -34,6 +34,14 @@ public class Player {
         setScore();
     }
 
+    public StringBuilder displayHand() {
+        StringBuilder message = new StringBuilder();
+        for (Card card : hand) {
+            message.append(card).append(" | ");
+        }
+        return message;
+    }
+
     public boolean bust(short score) {
         return score > 21;
     }
@@ -43,6 +51,7 @@ public class Player {
             System.out.println("Do you want to draw a card? (Y/n)");
             String answer = playerChoice.nextLine();
             if (Objects.equals(answer, "n") || Objects.equals(answer, "N")) {
+                this.keepHand = true;
                 return false;
             }
             return true;
@@ -50,6 +59,7 @@ public class Player {
         if (getScore() <= 16) {
             return true;
         }
+        this.keepHand = true;
         return false;
     }
 
