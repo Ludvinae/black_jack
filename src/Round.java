@@ -43,7 +43,10 @@ public class Round {
             System.out.println(this);
             if (this.turn == "bank") {
                 System.out.println("Bank hand: " + bank.displayHand());
-                if (!bank.keepHand && bank.keepPlaying(true)) {
+                if (player.keepHand && !bank.keepHand && (player.score > bank.score) && !player.bust(player.getScore())) {
+                    bank.draw(deck);
+                }
+                else if (!bank.keepHand && bank.keepPlaying(true)) {
                     bank.draw(deck);
                 }
                 this.turn = "player";
