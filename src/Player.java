@@ -1,4 +1,3 @@
-import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -13,7 +12,7 @@ public class Player {
 
     public Player() {
         this.score = 0;
-        this.hand = new ArrayList<Card>();
+        this.hand = new ArrayList<>();
         this.keepHand = false;
     }
 
@@ -29,7 +28,7 @@ public class Player {
             boolean exceed = true;
             for (Card card : hand) {
                 tempScore += card.getValue(exceed);
-                System.out.println(tempScore);
+                //System.out.println(tempScore);
                 if (card.card == "Ace" && (counter >= loopCount)) {
                     counter += 1;
                     exceed = false;
