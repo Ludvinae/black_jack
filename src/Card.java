@@ -11,9 +11,9 @@ public class Card {
     static List<String> validType = List.of("Diamonds", "Hearts", "Spades", "Clubs");
 
     public Card(String card, String type) throws Exception {
-        setValue(card);
+        setCard(card);
         setType(type);
-        this.value = getValue();
+        this.value = getValue(false);
     }
 
     @Override
@@ -21,12 +21,12 @@ public class Card {
         return card + " of " + type;
     }
 
-    public void setValue(String value) throws Exception {
-        if (validCard.contains(value)) {
-            this.card = value;
+    public void setCard(String card) throws Exception {
+        if (validCard.contains(card)) {
+            this.card = card;
         }
         else {
-            throw new Exception("Invalid card value");
+            throw new Exception("Invalid card");
         }
     }
 
@@ -39,10 +39,13 @@ public class Card {
         }
     }
 
-    public short getValue() {
+    public short getValue(boolean exceed) {
         if (this.card == "J" || this.card == "Q" || this.card == "K") {
             return 10;
         } else if (this.card == "Ace") {
+            if (exceed) {
+                return 1;
+            }
             return 11;
         }
         else {

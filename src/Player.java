@@ -20,7 +20,24 @@ public class Player {
     public void setScore() {
         short tempScore = 0;
         for (Card card : hand) {
-            tempScore += card.getValue();
+            tempScore += card.getValue(false);
+        }
+        short counter = 0;
+        short loopCount = 1;
+        while (tempScore > 21) {
+            tempScore = 0;
+            boolean exceed = true;
+            for (Card card : hand) {
+                tempScore += card.getValue(exceed);
+                if (card.card == "Ace" && (counter < loopCount)) {
+                    counter += 1;
+                    exceed = false;
+                }
+            }
+            loopCount += 1;
+            if (loopCount > hand.size()) {
+                break;
+            }
         }
         this.score = tempScore;
     }
