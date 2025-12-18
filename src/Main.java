@@ -7,6 +7,7 @@ public class Main {
          */
 
         Round round = new Round();
+        //System.out.println(round.deck);
         round.play();
     }
 }
