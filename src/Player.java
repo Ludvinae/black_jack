@@ -30,7 +30,9 @@ public class Player {
     }
 
     public void draw(Deck deck) {
-        this.hand.add(deck.drawCard());
+        Card card = deck.drawCard();
+        System.out.println("Drawn a card: " + card);
+        this.hand.add(card);
         setScore();
     }
 
