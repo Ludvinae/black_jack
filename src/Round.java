@@ -1,13 +1,15 @@
 public class Round {
 
-    Player bank = new Player();
-    Player player = new Player();
+    Player player;
+    Player bank;
     Deck deck;
     String turn;
 
     public Round() throws Exception {
         this.deck = new Deck();
         this.turn = "player";
+        this.bank = new Player();
+        this.player = new Player();
         for (int i = 0; i < 2; i++) {
             bank.draw(deck);
             player.draw(deck);
